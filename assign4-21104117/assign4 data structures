@@ -1,0 +1,80 @@
+answer 1-
+on-place sorting algorithm
+in-place sorting algorithms do not require any extra space to sort the elements.
+in-place sorting algorithms are more efficient than out-place sorting algorithms.
+in-place sorting algorithms are more complex than out-place sorting algorithms.
+in-place sorting algorithms are more stable than out-place sorting algorithms.
+
+out-place sorting algorithm
+out-place sorting algorithms require extra space to sort the elements.
+out-place sorting algorithms are less efficient than in-place sorting algorithms.
+out-place sorting algorithms are less complex than in-place sorting algorithms.
+out-place sorting algorithms are less stable than in-place sorting algorithms.
+
+
+answer 3-
+practical examples of in-place and out-place sorting algorithms are:
+in-place sorting algorithm-used in places where less memory is available but no limit to time, like micro computers. example - bubble sort
+
+out-place sorting algorithm-used in places where space is available but time limit is less, like supercomputers. example - merge sort
+
+
+answer 2-
+
+# In-place Insertion Sort
+
+def in_place_insertion_sort(arr: list):
+    """Function to perform in-place insertion sort on one-dimensional numerical array.
+    
+    Arguments:
+    array -- array
+    """
+
+    for i in range(1, len(arr)):
+        key = arr[i]
+        j = i - 1
+        while j >= 0 and key < arr[j]:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
+    return arr
+
+#using in-place insertion sort function on an example array:
+    list = [9,5,7,1,11]
+print("\n Insertion sort in-place:", in_place_insertion_sort(list))
+Insertion sort in-place: [1, 5, 7, 9, 11]
+
+#implementing insertion sort using out-place manner:
+
+# Out-place Insertion Sort
+
+def out_place_insertion_sort(arr: list):
+    """Function to perform out-place insertion sort on one-dimensional numerical array.
+    
+    Arguments:
+    array -- array
+    """
+
+    # Insertion sort is an in-place sorting algorithm, So to implement it in out-place manner we need to create a copy of the array.
+    
+    arr_copy = arr.copy()
+    lst = [arr_copy[0]]
+    arr_copy.pop(0)
+    while len(arr_copy)!=0:
+        key = arr_copy[0]
+        for i in range(len(lst)-1,-1,-1):
+            if lst[i] < key:
+                lst.insert(i+1, key)
+                arr_copy.pop(0)
+                break
+            else:
+                lst.insert(0, key)
+                arr_copy.pop(0)
+                break
+    return (lst)
+
+using out-place insertion sort function on an example array:
+
+list = [14,53,7,1,89]
+print("\n Insertion sort out-place:", out_place_insertion_sort(list))
+Insertion sort out-place: [1, 7, 14, 53, 89]
