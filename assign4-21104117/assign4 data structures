@@ -1,5 +1,5 @@
 answer 1-
-on-place sorting algorithm
+in-place sorting algorithm
 in-place sorting algorithms do not require any extra space to sort the elements.
 in-place sorting algorithms are more efficient than out-place sorting algorithms.
 in-place sorting algorithms are more complex than out-place sorting algorithms.
